@@ -1,0 +1,7 @@
+{
+  "name": "Al Bait Al Ateeq Furniture",
+  "description": "Al Bait Al Ateeq Furniture (مفروشات البيت العتيق) - Premium luxury furniture inspired by classic Arabian hospitality and contemporary luxury in the UAE.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

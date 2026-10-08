@@ -1,0 +1,175 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-ivory: #FAF7F2;
+    --color-sand: #E8DFD3;
+    --color-sand-light: #F2EBE1;
+    --color-walnut: #3B2A20;
+    --color-walnut-dark: #2A1D15;
+    --color-charcoal: #1C1C1C;
+    --color-brass: #B08D57;
+    --color-brass-light: #D4B483;
+    --color-brass-dark: #8C6B3F;
+    --color-rose-sand: #EAD9CF;
+    --color-rose-sand-light: #F6EEE7;
+  }
+
+  body {
+    background-color: #FAF7F2;
+    color: #1C1C1C;
+    font-family: 'Inter', 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+    letter-spacing: -0.01em;
+  }
+
+  /* Arabic typography */
+  [dir="rtl"] body,
+  [dir="rtl"] {
+    font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+/* Editorial Serif Headings */
+.font-serif-luxury {
+  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  letter-spacing: -0.025em;
+}
+
+[dir="rtl"] .font-serif-luxury {
+  font-family: 'Tajawal', serif;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+
+/* Hairline dividers & borders */
+.hairline-border {
+  border-color: rgba(59, 42, 32, 0.08);
+}
+
+.hairline-dark {
+  border-color: rgba(250, 247, 242, 0.1);
+}
+
+.hairline-brass-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #B08D57 50%, transparent 100%);
+  opacity: 0.6;
+}
+
+/* Gradients */
+.grad-sand-ivory {
+  background: linear-gradient(135deg, #E8DFD3 0%, #FAF7F2 100%);
+}
+
+[dir="rtl"] .grad-sand-ivory {
+  background: linear-gradient(225deg, #E8DFD3 0%, #FAF7F2 100%);
+}
+
+.grad-walnut-charcoal {
+  background: linear-gradient(160deg, #3B2A20 0%, #1C1C1C 100%);
+}
+
+[dir="rtl"] .grad-walnut-charcoal {
+  background: linear-gradient(200deg, #3B2A20 0%, #1C1C1C 100%);
+}
+
+.grad-rose-sand {
+  background: linear-gradient(135deg, #EAD9CF 0%, #F6EEE7 100%);
+}
+
+[dir="rtl"] .grad-rose-sand {
+  background: linear-gradient(225deg, #EAD9CF 0%, #F6EEE7 100%);
+}
+
+/* Brass Shimmer on highlighted words */
+.text-brass-shimmer {
+  background: linear-gradient(90deg, #8C6B3F 0%, #D4B483 45%, #FAF7F2 50%, #D4B483 55%, #8C6B3F 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  display: inline-block;
+  animation: brassShimmer 6s linear infinite;
+}
+
+@keyframes brassShimmer {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+/* Slow animated background for signature sections (18s loop) */
+.grad-ambient-loop {
+  background: linear-gradient(135deg, #FAF7F2, #E8DFD3, #EAD9CF, #FAF7F2);
+  background-size: 300% 300%;
+  animation: ambientShift 18s ease infinite;
+}
+
+@keyframes ambientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Quiet luxury button styling with walnut to charcoal sheen */
+.btn-quiet-luxury {
+  background: linear-gradient(135deg, #3B2A20 0%, #1C1C1C 50%, #3B2A20 100%);
+  background-size: 200% auto;
+  color: #FAF7F2;
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-quiet-luxury:hover {
+  background-position: right center;
+  box-shadow: 0 10px 25px -10px rgba(28, 28, 28, 0.25);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF7F2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D8CEBE;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B08D57;
+}
+
+/* Reduced motion compliance */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .text-brass-shimmer {
+    animation: none !important;
+    background-position: center !important;
+  }
+  .grad-ambient-loop {
+    animation: none !important;
+    background-position: center !important;
+  }
+}
